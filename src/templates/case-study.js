@@ -36,6 +36,7 @@ const Status = styled.div`
     margin-bottom: 4px;
     border-radius: 4px;
     color: #fff;
+    background-color: #777;
   }
   .status-draft {
     background-color: #f4d036;
@@ -157,6 +158,9 @@ const CaseStudyTemplate = ({
           {post.frontmatter.geography && (
             <Content>
               <h2>Case Study Geography</h2>
+              {post.frontmatter.geography_caption && (
+                <p>{post.frontmatter.geography_caption}</p>
+              )}
               <MapCaseGeoJson url={post.frontmatter.geography.publicURL} />
             </Content>
           )}

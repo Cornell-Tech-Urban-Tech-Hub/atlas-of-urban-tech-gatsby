@@ -1,3 +1,4 @@
 [submodule "atlas"]
 	path = atlas
 	url = https://github.com/Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech
+	branch = main

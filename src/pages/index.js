@@ -4,7 +4,7 @@ import styled from "styled-components"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Section, Content } from "../styles/StyledElements"
+import { Section, Content, Status } from "../styles/StyledElements"
 
 const StyledCaseList = styled.ul`
   list-style: none;
@@ -21,11 +21,26 @@ const StyledCaseList = styled.ul`
 
 const StatusTag = styled.div`
   display: inline-block;
-  padding: 0px 6px;
   margin-right: 4px;
   margin-bottom: 4px;
-  border-radius: 4px;
-  background: #ddd;
+
+  .status {
+    font-family: ${({ theme }) => theme.type.sans};
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #777;
+  }
+
+  .status-draft {
+    background-color: #f4d036;
+  }
+  .status-review {
+    background-color: #eda229;
+  }
+  .status-complete {
+    background-color: #00c0f3;
+  }
 `
 
 const SiteIndex = ({ data, location }) => {
@@ -70,8 +85,12 @@ const SiteIndex = ({ data, location }) => {
                       </Link>
                     </h3>
                     <div class="details">
-                      <StatusTag class="status">
-                        {post.frontmatter.status}
+                      <StatusTag>
+                        <span
+                          class={`status status-${post.frontmatter.status?.toLowerCase()}`}
+                        >
+                          {post.frontmatter.status}
+                        </span>
                       </StatusTag>
                       <span
                         dangerouslySetInnerHTML={{

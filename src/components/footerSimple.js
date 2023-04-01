@@ -51,6 +51,7 @@ const FooterSimple = ({ siteMetadata, version, location }) => {
       <FooterNav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
+        <Link to="/map">Map</Link>
         {/* <Link to="/search">Search</Link>
                 <Link to="/privacy">Privacy</Link> */}
       </FooterNav>

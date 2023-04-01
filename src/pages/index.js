@@ -4,7 +4,7 @@ import styled from "styled-components"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Section, Content, Status } from "../styles/StyledElements"
+import { Section, Content } from "../styles/StyledElements"
 
 const StyledCaseList = styled.ul`
   list-style: none;

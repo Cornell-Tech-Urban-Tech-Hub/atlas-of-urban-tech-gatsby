@@ -32,6 +32,27 @@ const PageMap = ({ data, location }) => {
   //   )
   // }
 
+  const isLatitude = num => isFinite(num) && Math.abs(num) <= 90
+  const isLongitude = num => isFinite(num) && Math.abs(num) <= 180
+  let checkPosts = posts.map(post => {
+    let valid = false
+    let centroid = post.frontmatter.centroid
+    console.log(centroid)
+    if (centroid) {
+      let lon = centroid[0]
+      let lat = centroid[1]
+      if (isLongitude(lon) && isLatitude(lat)) {
+        valid = true
+      }
+    }
+    post.validCoordinate = valid
+
+    return post
+  })
+  console.log(checkPosts)
+  let postsValid = checkPosts.filter(d => d.validCoordinate)
+  let postsInvalid = checkPosts.filter(d => !d.validCoordinate)
+
   return (
     <Layout location={location} title={siteTitle}>
       <Section>
@@ -48,7 +69,7 @@ const PageMap = ({ data, location }) => {
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
               attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`}
             />
-            {posts.map(post => {
+            {postsValid.map(post => {
               const title = post.frontmatter.title || post.fields.slug
 
               return (
@@ -75,6 +96,28 @@ const PageMap = ({ data, location }) => {
               )
             })}
           </MapContainer>
+        </Content>
+        <Content>
+          {postsInvalid.length > 0 && (
+            <>
+              <h4>
+                Case studies missing valid centroid coordinate in post
+                frontmatter
+              </h4>
+              <ul>
+                {postsInvalid.map(post => {
+                  const title = post.frontmatter.title || post.fields.slug
+                  return (
+                    <li>
+                      <Link to={post.fields.slug} itemProp="url">
+                        {title}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </>
+          )}
         </Content>
       </Section>
     </Layout>

@@ -135,7 +135,7 @@ export function GlobeMarker({
           fill="#E91E63"
           className="marker"
         /> */}
-          <g class="marker-icon" transform="translate(-10 -20)">
+          <g className="marker-icon" transform="translate(-10 -20)">
             <path
               fill={"#444"}
               stroke={"#fff"}

@@ -55,8 +55,8 @@ const PageMapTesting = ({ data, location }) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h3>
-                    <div class="details">
-                      <StatusTag class="status">
+                    <div className="details">
+                      <StatusTag className="status">
                         {post.frontmatter.status}
                       </StatusTag>
                       <span

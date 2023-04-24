@@ -84,10 +84,10 @@ const SiteIndex = ({ data, location }) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h3>
-                    <div class="details">
+                    <div className="details">
                       <StatusTag>
                         <span
-                          class={`status status-${post.frontmatter.status?.toLowerCase()}`}
+                          className={`status status-${post.frontmatter.status?.toLowerCase()}`}
                         >
                           {post.frontmatter.status}
                         </span>

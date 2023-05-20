@@ -8,6 +8,7 @@ export const Content = styled.div`
   width: 90%;
   max-width: 1200px;
   margin: 1rem auto;
+  overflow-wrap: break-word;
   /* display: grid; */
   // grid-template-columns: 3fr 1fr;
   // grid-gap: 40px

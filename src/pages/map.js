@@ -37,11 +37,13 @@ const PageMap = ({ data, location }) => {
   let checkPosts = posts.map(post => {
     let valid = false
     let centroid = post.frontmatter.centroid
-    console.log(centroid)
+    //console.log(centroid)
     if (centroid) {
       let lon = centroid[0]
       let lat = centroid[1]
-      if (isLongitude(lon) && isLatitude(lat)) {
+      let isLat = isLongitude(lat)
+      let isLon = isLatitude(lon)
+      if (isLat && isLon) {
         valid = true
       }
     }

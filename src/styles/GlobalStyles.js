@@ -16,6 +16,7 @@ html {
 
 a:link, a:visited {
   color: ${props => props.theme.colors.link};
+  overflow-wrap: anywhere;
 }
 
 strong {

@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Section, Content } from "../styles/StyledElements"
+import GlobeLayoutA2 from "../components/globeLayoutA2"
 
 const StyledCaseList = styled.ul`
   list-style: none;
@@ -67,6 +68,12 @@ const SiteIndex = ({ data, location }) => {
             A work in process global atlas of case studies of tech-enabled urban
             districts and municipal digital masterplans
           </p>
+
+          <GlobeLayoutA2 />
+        </Content>
+      </Section>
+      <Section>
+        <Content>
           <h2>Case Studies</h2>
           <StyledCaseList>
             {posts.map(post => {

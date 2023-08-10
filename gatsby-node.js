@@ -111,6 +111,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      template: String
       status: String
       type: String
       city: String

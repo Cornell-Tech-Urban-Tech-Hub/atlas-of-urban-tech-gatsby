@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 // import Bio from "../components/bio"
+import * as d3 from "d3"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Section, Content } from "../styles/StyledElements"
@@ -44,9 +45,28 @@ const StatusTag = styled.div`
   }
 `
 
+const TypeTag = styled.div`
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+
+  font-family: ${({ theme }) => theme.type.sans};
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #777;
+`
+
 const SiteIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = d3.sort(data.allMarkdownRemark.nodes, (a, b) =>
+    d3.ascending(a.frontmatter.title, b.frontmatter.title)
+  )
+
+  const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
+  const postsStub = posts.filter(d => d.frontmatter.template === "stub")
+
+  console.log({ posts, postsCS, postsStub })
 
   // if (posts.length === 0) {
   //   return (
@@ -76,7 +96,44 @@ const SiteIndex = ({ data, location }) => {
         <Content>
           <h2>Case Studies</h2>
           <StyledCaseList>
-            {posts.map(post => {
+            {postsCS.map(post => {
+              const title = post.frontmatter.title || post.fields.slug
+
+              return (
+                <li key={post.fields.slug}>
+                  <article
+                    className="post-list-item"
+                    itemScope
+                    itemType="http://schema.org/Article"
+                  >
+                    <h3>
+                      <Link to={post.fields.slug} itemProp="url">
+                        <span itemProp="headline">{title}</span>
+                      </Link>
+                    </h3>
+                    <div className="details">
+                      <StatusTag>
+                        <span
+                          className={`status status-${post.frontmatter.status?.toLowerCase()}`}
+                        >
+                          {post.frontmatter.status}
+                        </span>
+                      </StatusTag>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: post.frontmatter.description || post.excerpt,
+                        }}
+                        itemProp="description"
+                      />
+                    </div>
+                  </article>
+                </li>
+              )
+            })}
+          </StyledCaseList>
+          <h2>Stub Entries</h2>
+          <StyledCaseList>
+            {postsStub.map(post => {
               const title = post.frontmatter.title || post.fields.slug
 
               return (
@@ -143,6 +200,8 @@ export const pageQuery = graphql`
           title
           description
           status
+          template
+          type
         }
       }
     }

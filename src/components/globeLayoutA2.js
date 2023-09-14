@@ -35,6 +35,12 @@ export default function GlobeLayoutA2({ location }) {
             description
             status
             centroid
+            city
+            country_code
+            year_start
+            year_completed
+            template
+            type
           }
         }
       }

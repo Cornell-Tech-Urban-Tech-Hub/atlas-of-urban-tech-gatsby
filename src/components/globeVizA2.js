@@ -30,6 +30,15 @@ const vizTitle = ``
 const vizDesc = `` // Accessibility
 const vizSource = ``
 
+const dataDict = {
+  "case-study": {
+    color: "red",
+  },
+  stub: {
+    color: "purple",
+  },
+}
+
 const ChartWrapper = styled.div`
   margin: 0;
   position: relative;
@@ -251,7 +260,7 @@ export function GlobeVizA2({
     //   .attr("fill", "#333")
 
     const coord = d => {
-      console.log("COORD")
+      // console.log("COORD")
       let str = path(d)
       if (str) {
         let [sub, x, y] = str.match(/^M([-0-9.]+),([-0-9.]+)/)
@@ -292,7 +301,10 @@ export function GlobeVizA2({
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", 5)
-      .attr("fill", "#333")
+      .attr("fill", d => {
+        let lu = dataDict[d.properties.frontmatter.template]
+        return lu ? lu.color : "#888"
+      })
       .on("mouseover", pointMouseOver)
       .on("mouseout", pointMouseOut)
       .on("click", pointClick)

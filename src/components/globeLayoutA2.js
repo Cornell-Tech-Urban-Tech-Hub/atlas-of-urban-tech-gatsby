@@ -14,7 +14,7 @@ export default function GlobeLayoutA2({ location }) {
   //const mdNode = data.allMarkdownRemark.edges[0].node
 
   const geoData = useGeoData()
-  console.log(geoData)
+  //console.log(geoData)
 
   const data = useStaticQuery(graphql`
     {

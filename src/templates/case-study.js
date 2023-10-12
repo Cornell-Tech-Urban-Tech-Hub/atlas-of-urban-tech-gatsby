@@ -82,6 +82,9 @@ const CaseStudyTemplate = ({
               </Col>
               <Col size={1}>
                 <Metadata>
+                  <h4>Type</h4>
+                  <div>{post.frontmatter.type}</div>
+
                   <h4>Status</h4>
                   {post.frontmatter.author ? (
                     <Status>
@@ -203,6 +206,7 @@ export const pageQuery = graphql`
         year_completed
         centroid
         tags
+        type
         featured_image {
           childImageSharp {
             # gatsbyImageData(width: 800)

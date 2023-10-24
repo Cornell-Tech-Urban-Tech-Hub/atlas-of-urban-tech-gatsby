@@ -1,72 +1,36 @@
 import * as React from "react"
+
 import { Link, graphql } from "gatsby"
-import styled from "styled-components"
+
 // import Bio from "../components/bio"
 import * as d3 from "d3"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Section, Content } from "../styles/StyledElements"
-import GlobeLayoutA2 from "../components/globeLayoutA2"
-
-const StyledCaseList = styled.ul`
-  list-style: none;
-  padding-left: 0;
-
-  h3 {
-    margin-bottom: 0;
-  }
-
-  .details {
-    font-size: 0.85rem;
-  }
-`
-
-const StatusTag = styled.div`
-  display: inline-block;
-  margin-right: 4px;
-  margin-bottom: 4px;
-
-  .status {
-    font-family: ${({ theme }) => theme.type.sans};
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #777;
-  }
-
-  .status-draft {
-    background-color: #f4d036;
-  }
-  .status-review {
-    background-color: #eda229;
-  }
-  .status-complete {
-    background-color: #00c0f3;
-  }
-`
-
-const TypeTag = styled.div`
-  display: inline-block;
-  margin-right: 4px;
-  margin-bottom: 4px;
-
-  font-family: ${({ theme }) => theme.type.sans};
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #fff;
-  background-color: #777;
-`
+import {
+  Section,
+  Content,
+  SectionMeta,
+  Row,
+  Col,
+} from "../styles/StyledElements"
+import { CaseCardSection } from "../components/caseCardLayout"
+import { contentMapMarkdown } from "../components/pageUtilities"
+import { Masthead } from "../components/masthead"
 
 const SiteIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = d3.sort(data.allMarkdownRemark.nodes, (a, b) =>
+  const posts = d3.sort(data.cases.nodes, (a, b) =>
     d3.ascending(a.frontmatter.title, b.frontmatter.title)
   )
+  const markdownMap = contentMapMarkdown(data.markdown.nodes)
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
+  const postsFeatured = postsCS.slice(0, 3)
+
   console.log({ posts, postsCS, postsStub })
+  console.log({ markdownMap })
 
   // if (posts.length === 0) {
   //   return (
@@ -82,94 +46,43 @@ const SiteIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Section>
+      <Masthead />
+      <SectionMeta>
         <Content>
-          <p>
-            A work in process global atlas of case studies of tech-enabled urban
-            districts and municipal digital masterplans
-          </p>
-
-          <GlobeLayoutA2 />
+          <Row>
+            <Col>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: markdownMap.get("intro")?.html,
+                }}
+              />
+            </Col>
+          </Row>
         </Content>
-      </Section>
-      <Section>
+      </SectionMeta>
+      <CaseCardSection nodes={postsFeatured} heading="Featured Case Studies" />
+      <SectionMeta>
+        <Content>
+          <Row>
+            <Col>
+              <h2>{markdownMap.get("takeaways")?.frontmatter.title}</h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: markdownMap.get("takeaways")?.html,
+                }}
+              />{" "}
+            </Col>
+          </Row>
+        </Content>
+      </SectionMeta>
+      {/* <Section>
         <Content>
           <h2>Case Studies</h2>
-          <StyledCaseList>
-            {postsCS.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
-
-              return (
-                <li key={post.fields.slug}>
-                  <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                  >
-                    <h3>
-                      <Link to={post.fields.slug} itemProp="url">
-                        <span itemProp="headline">{title}</span>
-                      </Link>
-                    </h3>
-                    <div className="details">
-                      <StatusTag>
-                        <span
-                          className={`status status-${post.frontmatter.status?.toLowerCase()}`}
-                        >
-                          {post.frontmatter.status}
-                        </span>
-                      </StatusTag>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                    </div>
-                  </article>
-                </li>
-              )
-            })}
-          </StyledCaseList>
+          <CaseListing nodes={postsCS} />
           <h2>Stub Entries</h2>
-          <StyledCaseList>
-            {postsStub.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
-
-              return (
-                <li key={post.fields.slug}>
-                  <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                  >
-                    <h3>
-                      <Link to={post.fields.slug} itemProp="url">
-                        <span itemProp="headline">{title}</span>
-                      </Link>
-                    </h3>
-                    <div className="details">
-                      <StatusTag>
-                        <span
-                          className={`status status-${post.frontmatter.status?.toLowerCase()}`}
-                        >
-                          {post.frontmatter.status}
-                        </span>
-                      </StatusTag>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                    </div>
-                  </article>
-                </li>
-              )
-            })}
-          </StyledCaseList>
+          <CaseListing nodes={postsStub} />
         </Content>
-      </Section>
+      </Section> */}
     </Layout>
   )
 }
@@ -190,18 +103,39 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/cases/" } }) {
+    cases: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/cases/" } }
+    ) {
       nodes {
         excerpt
         fields {
           slug
         }
+        id
         frontmatter {
           title
           description
           status
           template
           type
+          featured_image {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
+          }
+          featured_alt
+        }
+      }
+    }
+    markdown: allMarkdownRemark(
+      filter: { frontmatter: { section: { in: ["intro"] } } }
+    ) {
+      nodes {
+        html
+        frontmatter {
+          ref
+          section
+          title
         }
       }
     }

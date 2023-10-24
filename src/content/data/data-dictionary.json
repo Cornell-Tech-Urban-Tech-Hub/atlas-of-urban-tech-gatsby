@@ -1,0 +1,20 @@
+{
+  "plan": {
+    "label": "Digital Masterplan",
+    "labelshort": "Plan",
+    "color": "#800080"
+  },
+  "district": {
+    "label": "Tech-enabled District",
+    "labelshort": "District",
+    "color": "#f7a426"
+  },
+  "stub": {
+    "label": "Stub",
+    "color": "grey"
+  },
+  "case-study": {
+    "label": "Case Study",
+    "color": "grey"
+  }
+}

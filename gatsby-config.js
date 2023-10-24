@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
+require("dotenv").config() // get env file
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -78,6 +79,31 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/assets/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    // {
+    //   resolve: "gatsby-plugin-web-font-loader",
+    //   options: {
+    //     typekit: {
+    //       id: process.env.TYPEKIT_ID,
+    //     },
+    //   },
+    // },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        mode: `async`,
+        preconnect: [`https://use.typekit.net`],
+        web: [
+          {
+            name: `adelle`,
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`,
+          },
+          {
+            name: `din-2014`,
+            file: `https://use.typekit.net/${process.env.TYPEKIT_ID}.css`,
+          },
+        ],
       },
     },
     {

@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { useLocation } from "@reach/router"
 // import styled from "styled-components"
 
 // import Navigation from "./navigation"
@@ -16,32 +17,45 @@ import styled from "styled-components"
 // `
 const HeaderContainer = styled.header`
   font-family: ${props => props.theme.type.sans};
-  margin: 0 auto;
-  max-width: 960;
-  padding: 1rem 5%;
-  margin: 0 auto;
-  border-bottom: 1px solid #333;
-  background-color: #ddd;
+  background-color: ${props => props.theme.colors.red};
+
+  .header-inner {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
   a:link,
   a:visited {
     font-weight: bold;
-    color: #333;
+    color: #fff;
     text-decoration: none;
   }
 
   a:hover {
     text-decoration: underline;
   }
+
+  &.header-home {
+    display: none;
+  }
 `
 
 const Header = ({ siteMetadata, title }) => {
+  const location = useLocation()
   return (
     <>
-      <HeaderContainer className="global-header">
-        <Link className="header-link-home" to="/">
-          {siteMetadata.title}
-        </Link>
+      <HeaderContainer
+        className={`global-header ${
+          location.pathname === "/" ? "header-home" : ""
+        }`}
+      >
+        <div className="header-inner">
+          <Link className="header-link-home" to="/">
+            {siteMetadata.title}
+          </Link>
+        </div>
       </HeaderContainer>
       {/* <Navigation siteMetadata={siteMetadata} /> */}
     </>

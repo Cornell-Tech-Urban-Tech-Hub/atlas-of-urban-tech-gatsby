@@ -9,6 +9,7 @@ import {
   Row,
   Col,
 } from "../styles/StyledElements"
+import { PageSimpleHeader } from "../components/pageSimpleHeader"
 
 export default function About({ location, data }) {
   const mdNode = data.allMarkdownRemark.edges[0].node
@@ -16,15 +17,7 @@ export default function About({ location, data }) {
   return (
     <Layout location={location}>
       <Seo title={mdNode.frontmatter.title} />
-      <PageHeader>
-        <Content>
-          <Row>
-            <Col>
-              <h1>{mdNode.frontmatter.title}</h1>
-            </Col>
-          </Row>
-        </Content>
-      </PageHeader>
+      <PageSimpleHeader title={mdNode.frontmatter.title}></PageSimpleHeader>
       <Section>
         <Content>
           <Row>

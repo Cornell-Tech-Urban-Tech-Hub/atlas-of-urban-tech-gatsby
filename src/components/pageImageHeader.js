@@ -25,6 +25,7 @@ export const ImageHeader = styled.div`
       padding: 0.5rem 0;
       background-color: white;
       box-shadow: 10px 0 0 white, -10px 0 0 white;
+      box-decoration-break: clone;
     }
 
     ${below.md} {

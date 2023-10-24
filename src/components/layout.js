@@ -46,7 +46,7 @@ const Layout = ({ location, title, children }) => {
         <div className="global-wrapper" data-is-root-path={isRootPath}>
           <Header siteMetadata={data.site.siteMetadata} title={title} />
           <main>{children}</main>
-          <FooterSimple />
+          <Footer />
         </div>
       </ThemeProvider>
     </>

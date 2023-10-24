@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
-import { GlobeVizB1 } from "../../components/globeVizB1"
-import { UseGeoData } from "../../components/useGeoData"
+import { GlobeVizB1 } from "../../components/globe/globeVizB1"
+// import { useGeoData } from "../../components/globe/useGeoData"
 import {
   PageHeader,
   Section,

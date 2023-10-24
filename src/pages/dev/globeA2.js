@@ -2,7 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
-import { GlobeVizA2 } from "../../components/globeVizA2"
+import { GlobeVizA2 } from "../../components/globe/globeVizA2"
+import { useGeoData } from "../../components/globe/useGeoData"
 import processPostCoord from "../../components/processPostCoord"
 import {
   PageHeader,
@@ -11,7 +12,6 @@ import {
   Row,
   Col,
 } from "../../styles/StyledElements"
-import { useGeoData } from "../../components/useGeoData"
 
 export default function Globe({ location, data }) {
   //const mdNode = data.allMarkdownRemark.edges[0].node
@@ -88,6 +88,12 @@ export const pageQuery = graphql`
           description
           status
           centroid
+          city
+          country_code
+          year_start
+          year_completed
+          template
+          type
         }
       }
     }

@@ -1,5 +1,7 @@
+import React from "react"
 import styled, { css } from "styled-components"
 import { above, below } from "./utilities/breakpoints"
+import { Link } from "gatsby"
 
 // LAYOUT
 export const Section = styled.section``
@@ -178,4 +180,10 @@ export const ImageCreditOver = styled.div`
   font-size: 0.8rem;
   padding: 0 0.4rem;
   text-align: right;
+`
+
+export const StyledLink = styled(props => <Link {...props} />)`
+  display: inline-block;
+  color: ${props => props.theme.colors.primary};
+  border: 1px solid ${props => props.theme.colors.primary};
 `

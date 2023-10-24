@@ -15,13 +15,9 @@ const theme = {
     lightgrey: "#CECECE",
     black: "000000",
   },
-  forecast: {
-    supercharged: "#F5A52D",
-    dark_plans: "#4F6D7A",
-    new_screen: "#F27A81",
-    wild_well: "#89BC71",
-    resilient: "#4DA8EA",
-    urban_innovation: "#CC7FD8",
+  category: {
+    plan: "#800080",
+    district: "#f7a426",
   },
   type: {
     sans: `"din-2014", sans-serif`,

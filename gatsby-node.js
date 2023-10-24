@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       createPage({
-        path: post.fields.slug,
+        path: `cases${post.fields.slug}`,
         component: caseStudy,
         context: {
           id: post.id,

@@ -55,5 +55,30 @@ figcaption {
     color: #777;
   }
 
+a.button-more {
+  font-family: "din-2014", sans-serif;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  border-radius: 1rem;
+  display: inline-block;
+  color: ${props => props.theme.colors.primary};
+  border: 1px solid ${props => props.theme.colors.primary};
+  transition: all .25s ease-in-out;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.primary};
+    color: #ffffff
+  }
+}
+
+
+.case-types {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 1fr 1fr
+}
+
+
 `
+
 export default GlobalStyles

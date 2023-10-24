@@ -6,6 +6,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Section, Content } from "../styles/StyledElements"
+import { PageSimpleHeader } from "../components/pageSimpleHeader"
 
 const StatusTag = styled.div`
   display: inline-block;
@@ -57,10 +58,9 @@ const PageMap = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
+      <PageSimpleHeader title={"Map View"}></PageSimpleHeader>
       <Section>
         <Content>
-          <h2>Map View</h2>
-
           <MapContainer
             style={{ height: "600px" }}
             center={[0, 0]}

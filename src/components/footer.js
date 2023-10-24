@@ -151,6 +151,8 @@ const Footer = ({ siteMetadata, version, location }) => {
               <FooterNav>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
+                <Link to="/cases">Case Studies</Link>
+                <Link to="/stubs">Stub Entries</Link>
                 {/* <Link to="/search">Search</Link>
                 <Link to="/privacy">Privacy</Link> */}
               </FooterNav>

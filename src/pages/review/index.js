@@ -125,7 +125,7 @@ const SiteIndex = ({ data, location }) => {
                     itemType="http://schema.org/Article"
                   >
                     <h4>
-                      <Link to={`cases${post.fields.slug}`} itemProp="url">
+                      <Link to={`/cases${post.fields.slug}`} itemProp="url">
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h4>

@@ -17,7 +17,7 @@ export const CaseProspectNote = ({}) => {
       <p>
         This is a prospective case study that does not represent a full atlas
         entry but had been identified as a relevant example that with potential
-        for expansion. <Link to={`/stubs`}>Learn more.</Link>
+        for expansion. <Link to={`/prospects`}>Learn more.</Link>
       </p>
     </ProspectNoteStyled>
   )

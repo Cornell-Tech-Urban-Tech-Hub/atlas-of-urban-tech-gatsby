@@ -95,6 +95,11 @@ const StyledCaseRow = styled.li`
     padding: 0.25rem 0.5rem;
   }
 
+  a:link,
+  a:visited {
+    color: inherit;
+  }
+
   h3 {
     margin-top: 0;
     margin-bottom: 0;
@@ -104,9 +109,13 @@ const StyledCaseRow = styled.li`
     font-size: 0.85rem;
   }
 
+  .metatext {
+    margin-right: 0.5rem;
+  }
+
   box-shadow: 0 2px 40px 0 rgb(0 0 0 / 7%);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
-    opacity 0.2s ease-out;
+    opacity 0.2s ease-out, background-color 0.3s ease-out;
   transition-delay: 0.1s;
   transform: translateZ(0);
 
@@ -116,6 +125,7 @@ const StyledCaseRow = styled.li`
       rgb(49 49 49 / 5%) 0px 32px 32px, rgb(35 35 35 / 5%) 0px 64px 64px;
     transform: translate(0, -4px);
     z-index: 999;
+    background-color: #cecece;
   }
 `
 
@@ -144,32 +154,103 @@ export const CaseListingRow = ({ nodes }) => {
                     <span itemProp="headline">{title}</span>
                   </h3>
                   <div className="details">
-                    <span className="locaton">
+                    <span className="metatext locaton">
                       {post.frontmatter.city}, {post.frontmatter.country_code}
                     </span>
                     &nbsp;
-                    <span className="Timeframe">{textCaseTimeframe(post)}</span>
-                    {/* <StatusTag>
-                    <span
-                      className={`status status-${post.frontmatter.template?.toLowerCase()}`}
-                    >
-                      {post.frontmatter.template}
+                    <span className="metatext timeframe">
+                      {textCaseTimeframe(post)}
                     </span>
-                  </StatusTag>
-                  <StatusTag>
-                    <span
-                      className={`status status-${post.frontmatter.type?.toLowerCase()}`}
-                    >
-                      {post.frontmatter.type}
+                  </div>
+                </div>
+              </article>
+            </Link>
+          </StyledCaseRow>
+        )
+      })}
+    </StyledCaseSet>
+  )
+}
+
+const StyledTag = styled.div`
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-family: ${({ theme }) => theme.type.sans};
+  font-weight: 700;
+  padding: 0 0.2rem;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #aaa;
+
+  &.type-plan {
+    background-color: ${datadict.plan.color};
+  }
+  &.type-district {
+    background-color: ${datadict.district.color};
+  }
+
+  &.status-draft {
+    background-color: #f4d036;
+  }
+  &.status-review {
+    background-color: darkorange;
+  }
+  &.status-complete {
+    background-color: #00c0f3;
+  }
+`
+
+export const CaseListingRowReview = ({ nodes }) => {
+  return (
+    <StyledCaseSet>
+      {nodes.map(post => {
+        const title = post.frontmatter.title || post.fields.slug
+
+        const type = post.frontmatter.type?.toLowerCase()
+        const typelabel = datadict[type]?.labelshort
+        const template = post.frontmatter.template?.toLowerCase()
+        const templatelabel = datadict[template]?.label
+
+        return (
+          <StyledCaseRow
+            className={`case case-${post.frontmatter.type}`}
+            key={post.fields.slug}
+          >
+            <Link to={`/cases${post.fields.slug}`} itemProp="url">
+              <article
+                className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
+              >
+                <div className="marker">
+                  {/* <CaseTypeTag node={post} /> */}
+                </div>
+                <div className="row-content">
+                  <h3>
+                    <span itemProp="headline">{title}</span>
+                  </h3>
+                  <div className="details">
+                    <span className="metatext locaton">
+                      {post.frontmatter.city}, {post.frontmatter.country_code}
                     </span>
-                  </StatusTag>
-                  <StatusTag>
-                    <span
+                    &nbsp;
+                    <span className="metatext timeframe">
+                      {textCaseTimeframe(post)}
+                    </span>
+                    <StyledTag className={`tag-type type-${type}`}>
+                      {typelabel}
+                    </StyledTag>
+                    <StyledTag className={`tag-template template-${template}`}>
+                      {" "}
+                      {templatelabel}
+                    </StyledTag>
+                    <StyledTag
                       className={`status status-${post.frontmatter.status?.toLowerCase()}`}
                     >
                       {post.frontmatter.status}
-                    </span>
-                  </StatusTag> */}
+                    </StyledTag>
                     {/* <span
             dangerouslySetInnerHTML={{
               __html: post.frontmatter.description || post.excerpt,

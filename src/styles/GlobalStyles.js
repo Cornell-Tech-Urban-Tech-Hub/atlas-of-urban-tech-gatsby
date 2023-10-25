@@ -72,6 +72,9 @@ a.button-more {
 }
 
 
+
+
+
 .case-types {
   display: grid;
   grid-gap: 40px;

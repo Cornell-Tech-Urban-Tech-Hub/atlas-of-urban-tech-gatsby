@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Section, Content, Col, Row } from "../styles/StyledElements"
 import PageImageHeader from "../components/pageImageHeader"
-import { CaseStubNote } from "../components/caseStubNote"
+import { CaseProspectNote } from "../components/caseProspectNote"
 import { CaseMetadata } from "../components/casePageMetadata"
 import { MapCaseGeoJson } from "../components/mapCaseGeoJson"
 
@@ -68,7 +68,7 @@ const CaseStudyTemplate = ({
                   dangerouslySetInnerHTML={{ __html: post.html }}
                   itemProp="articleBody"
                 />
-                {isStub && <CaseStubNote />}
+                {isStub && <CaseProspectNote />}
               </Col>
               <Col size={1}>
                 <CaseMetadata node={post} />

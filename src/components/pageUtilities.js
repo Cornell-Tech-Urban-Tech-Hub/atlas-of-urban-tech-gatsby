@@ -7,9 +7,6 @@ export function contentMapMarkdown(contentNodes) {
 }
 
 export function makeExcerpt(str, length = 25) {
-  // return str.length > n ? str.slice(0, n - 1) + "..." : str
-  console.log({ length })
-  //let words = str.split(" ", 25).join(" ")
   let words = str.split(" ")
   let excerpt
   if (words.length > length) {

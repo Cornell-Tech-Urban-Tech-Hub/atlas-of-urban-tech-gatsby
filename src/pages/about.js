@@ -16,7 +16,7 @@ export default function About({ location, data }) {
 
   return (
     <Layout location={location}>
-      <Seo title={mdNode.frontmatter.title} />
+      <Seo title={"About"} />
       <PageSimpleHeader title={mdNode.frontmatter.title}></PageSimpleHeader>
       <Section>
         <Content>

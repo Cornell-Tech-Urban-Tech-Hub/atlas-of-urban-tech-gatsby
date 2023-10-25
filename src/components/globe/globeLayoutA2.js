@@ -23,7 +23,12 @@ export default function GlobeLayoutA2({ location }) {
           title
         }
       }
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/cases/" } }) {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/cases/" }
+          frontmatter: { status: { eq: "Complete" } }
+        }
+      ) {
         nodes {
           id
           excerpt

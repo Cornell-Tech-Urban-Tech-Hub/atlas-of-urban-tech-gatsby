@@ -59,7 +59,7 @@ export const CaseListing = ({ nodes }) => {
 const StyledCaseSet = styled.ul`
   list-style: none;
   padding-left: 0;
-  a {
+  a:link {
     text-decoration: none;
     color: inherit;
   }

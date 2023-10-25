@@ -222,7 +222,6 @@ export const CardImage = ({ node }) => {
   const image = getImage(
     node.frontmatter.featured_image?.childImageSharp?.gatsbyImageData
   )
-  console.log(image)
   return (
     <div className="card-image">
       {image ? (

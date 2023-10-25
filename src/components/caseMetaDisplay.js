@@ -85,10 +85,13 @@ export function textCaseTimeframe(node) {
   let text = ""
   if (start) {
     text += start
-    if (completed) {
+    // if (completed) {
+    //   text += `—${completed}`
+    // } else {
+    //   text += `—Ongoing`
+    // }
+    if (completed && completed !== "") {
       text += `—${completed}`
-    } else {
-      text += `—Ongoing`
     }
   } else {
     text += "Timeframe N/A"

@@ -82,7 +82,7 @@ export const CaseMetadata = ({ node }) => {
           {datadict[meta.type] ? datadict[meta.type].label : "Undefined"}
         </div>
       </TypeTag>
-      <h4>Status</h4>
+      {/* <h4>Status</h4>
       {meta.author ? (
         <Status>
           <div class={`status status-${meta.status?.toLowerCase()}`}>
@@ -91,7 +91,7 @@ export const CaseMetadata = ({ node }) => {
         </Status>
       ) : (
         <div class="note-missing">Add Status</div>
-      )}
+      )} */}
 
       <h4>Author</h4>
       <div>

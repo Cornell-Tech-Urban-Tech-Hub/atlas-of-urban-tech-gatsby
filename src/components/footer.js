@@ -27,8 +27,26 @@ const StyledFooter = styled.footer`
 
   a:link,
   a:visited {
+    padding: 0rem 1rem;
     color: #fff;
     text-decoration: none;
+  }
+
+  a.footer-button {
+    font-family: "din-2014", sans-serif;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    border-radius: 1rem;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #fff;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      background-color: #fff;
+      color: rgb(51, 51, 51);
+      text-decoration: none;
+    }
   }
 
   h3 {
@@ -97,6 +115,9 @@ const FooterNav = styled(Column)`
     }
   }
 
+  b.footer-button {
+  }
+
   ${below.md} {
     margin-top: 1rem;
     a {
@@ -152,7 +173,9 @@ const Footer = ({ siteMetadata, version, location }) => {
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/cases">Case Studies</Link>
-                <Link to="/stubs">Stub Entries</Link>
+                <Link className="footer-button" to="/prospects">
+                  Contribute
+                </Link>
                 {/* <Link to="/search">Search</Link>
                 <Link to="/privacy">Privacy</Link> */}
               </FooterNav>

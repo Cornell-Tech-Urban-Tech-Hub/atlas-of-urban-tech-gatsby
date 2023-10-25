@@ -53,7 +53,6 @@ const StyledCardsSet = styled.div`
 `
 
 export const CaseCardSection = ({ nodes, heading, description }) => {
-  // console.log(nodes)
   return (
     <SectionCards className={`cards`}>
       <Content>

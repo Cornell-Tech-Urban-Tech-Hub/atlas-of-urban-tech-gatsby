@@ -8,65 +8,7 @@ import Seo from "../../components/seo"
 import { Section, Content } from "../../styles/StyledElements"
 import processEntries from "../../components/processEntries"
 import { ListTagsCounted } from "../../components/listTags"
-
-const StyledCaseList = styled.ul`
-  list-style: none;
-  padding-left: 0;
-  a {
-    text-decoration: none;
-  }
-
-  li {
-    background: #efefef;
-    margin-top: 0.25rem;
-    padding: 0.25rem 0.5rem;
-  }
-
-  h4 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .details {
-    font-size: 0.85rem;
-  }
-`
-
-const StatusTag = styled.div`
-  display: inline-block;
-  margin-right: 4px;
-  margin-bottom: 4px;
-
-  .status {
-    font-family: ${({ theme }) => theme.type.sans};
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #777;
-  }
-
-  .status-draft {
-    background-color: #f4d036;
-  }
-  .status-review {
-    background-color: #eda229;
-  }
-  .status-complete {
-    background-color: #00c0f3;
-  }
-`
-
-const TypeTag = styled.div`
-  display: inline-block;
-  margin-right: 4px;
-  margin-bottom: 4px;
-
-  font-family: ${({ theme }) => theme.type.sans};
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #fff;
-  background-color: #777;
-`
+import { CaseListingRowReview } from "../../components/caseListing"
 
 const SiteIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -101,8 +43,9 @@ const SiteIndex = ({ data, location }) => {
         <Content>
           <h1>Review Index</h1>
           <p>
-            This is a temporary page to review all atlas entries. In other
-            listings only posts with Status value set to "Complete will appear"
+            This is a temporary page to review all current atlas entries. In
+            other page listings only posts with Status value set to "Complete"
+            will appear
           </p>
         </Content>
       </Section>
@@ -112,65 +55,7 @@ const SiteIndex = ({ data, location }) => {
           <ListTagsCounted array={processed.tags} type="tags" />
 
           <h2>Entries</h2>
-
-          <StyledCaseList>
-            {posts.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
-
-              return (
-                <li key={post.fields.slug}>
-                  <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                  >
-                    <h4>
-                      <Link to={`/cases${post.fields.slug}`} itemProp="url">
-                        <span itemProp="headline">{title}</span>
-                      </Link>
-                    </h4>
-                    <div className="details">
-                      <span className="locaton">
-                        {post.frontmatter.city}, {post.frontmatter.country_code}
-                      </span>
-                      &nbsp;
-                      <span className="Timeframe">
-                        {post.frontmatter.year_start} –{" "}
-                        {post.frontmatter.year_completed}
-                      </span>
-                      <StatusTag>
-                        <span
-                          className={`status status-${post.frontmatter.template?.toLowerCase()}`}
-                        >
-                          {post.frontmatter.template}
-                        </span>
-                      </StatusTag>
-                      <StatusTag>
-                        <span
-                          className={`status status-${post.frontmatter.type?.toLowerCase()}`}
-                        >
-                          {post.frontmatter.type}
-                        </span>
-                      </StatusTag>
-                      <StatusTag>
-                        <span
-                          className={`status status-${post.frontmatter.status?.toLowerCase()}`}
-                        >
-                          {post.frontmatter.status}
-                        </span>
-                      </StatusTag>
-                      {/* <span
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      /> */}
-                    </div>
-                  </article>
-                </li>
-              )
-            })}
-          </StyledCaseList>
+          <CaseListingRowReview nodes={posts} />
         </Content>
       </Section>
     </Layout>

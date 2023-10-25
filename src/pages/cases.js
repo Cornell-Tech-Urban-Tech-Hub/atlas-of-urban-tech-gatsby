@@ -56,6 +56,7 @@ const SiteIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
+      <Seo title={"Case Studies"} />
       <PageSimpleHeader title={mdNode.frontmatter.title}></PageSimpleHeader>
       <Section>
         <Content>
@@ -86,13 +87,6 @@ const SiteIndex = ({ data, location }) => {
 
 export default SiteIndex
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Cast Studies" />
-
 export const pageQuery = graphql`
   {
     site {
@@ -113,8 +107,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/cases/" } }) {
+    allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/cases/" }
+        frontmatter: { status: { eq: "Complete" } }
+      }
+    ) {
       nodes {
+        id
         excerpt
         fields {
           slug

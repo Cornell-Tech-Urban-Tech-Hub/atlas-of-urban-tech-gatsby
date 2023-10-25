@@ -96,9 +96,14 @@ const SiteIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
+      <Seo title={"Review Index"} />
       <Section>
         <Content>
-          <h1>Index</h1>
+          <h1>Review Index</h1>
+          <p>
+            This is a temporary page to review all atlas entries. In other
+            listings only posts with Status value set to "Complete will appear"
+          </p>
         </Content>
       </Section>
       <Section>
@@ -120,7 +125,7 @@ const SiteIndex = ({ data, location }) => {
                     itemType="http://schema.org/Article"
                   >
                     <h4>
-                      <Link to={post.fields.slug} itemProp="url">
+                      <Link to={`cases${post.fields.slug}`} itemProp="url">
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h4>
@@ -173,13 +178,6 @@ const SiteIndex = ({ data, location }) => {
 }
 
 export default SiteIndex
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="All posts" />
 
 export const pageQuery = graphql`
   {

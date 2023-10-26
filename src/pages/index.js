@@ -97,7 +97,10 @@ export const pageQuery = graphql`
       }
     }
     cases: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/cases/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/cases/" }
+        frontmatter: { status: { eq: "Complete" } }
+      }
     ) {
       nodes {
         excerpt

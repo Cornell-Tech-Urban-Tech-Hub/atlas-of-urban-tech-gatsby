@@ -4,7 +4,7 @@ section: intro
 title: Key Takeaways
 ---
 
-Collectively, these case studies of digital masterplans and tech-enabled districts highlight some underlying truths about the smart cities movement—a broad web of change that includes all of the technology advances, policy innovations, and new social movements unleased by urban tech.
+Collectively, these case studies of digital masterplans and tech-enabled districts highlight some underlying truths about the smart cities movement—a broad web of change that includes all of the technology advances, policy innovations, and new social movements unleashed by urban tech.
 
 Here are a few of our key takeaways:
 

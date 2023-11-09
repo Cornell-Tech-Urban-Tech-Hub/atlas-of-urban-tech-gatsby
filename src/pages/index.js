@@ -29,21 +29,6 @@ const SiteIndex = ({ data, location }) => {
 
   const postsFeatured = postsCS.slice(0, 3)
 
-  console.log({ posts, postsCS, postsStub })
-  console.log({ markdownMap })
-
-  // if (posts.length === 0) {
-  //   return (
-  //     <Layout location={location} title={siteTitle}>
-  //       <p>
-  //         No blog posts found. Add markdown posts to "content/blog" (or the
-  //         directory you specified for the "gatsby-source-filesystem" plugin in
-  //         gatsby-config.js).
-  //       </p>
-  //     </Layout>
-  //   )
-  // }
-
   return (
     <Layout location={location} title={siteTitle}>
       <Masthead />

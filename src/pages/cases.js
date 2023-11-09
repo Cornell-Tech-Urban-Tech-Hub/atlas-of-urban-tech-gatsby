@@ -1,20 +1,13 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 // import Bio from "../components/bio"
 import * as d3 from "d3"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import {
-  PageHeader,
-  Section,
-  Content,
-  Row,
-  Col,
-} from "../styles/StyledElements"
+import { Section, Content, Row, Col } from "../styles/StyledElements"
 import processEntries from "../components/processEntries"
 import { CaseCardsSet } from "../components/caseCardLayout"
-import { CaseListingRow } from "../components/caseListing"
 import { PageSimpleHeader } from "../components/pageSimpleHeader"
 
 const StyledCaseList = styled.ul`
@@ -45,14 +38,11 @@ const SiteIndex = ({ data, location }) => {
   const posts = d3.sort(data.allMarkdownRemark.nodes, (a, b) =>
     d3.ascending(a.frontmatter.title, b.frontmatter.title)
   )
-
   const mdNode = data.page.edges[0].node
-
-  const processed = processEntries(data.allMarkdownRemark.nodes)
-  console.log(processed)
+  //const processed = processEntries(data.allMarkdownRemark.nodes)
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
-  const postsStub = posts.filter(d => d.frontmatter.template === "stub")
+  //const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
   return (
     <Layout location={location} title={siteTitle}>

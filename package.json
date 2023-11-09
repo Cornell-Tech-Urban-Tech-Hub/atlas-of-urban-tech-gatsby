@@ -1,8 +1,8 @@
 {
   "name": "atlas-of-urban-tech",
   "private": true,
-  "description": "Atlas of Urban Tech Draft",
-  "version": "0.1.0",
+  "description": "Atlas of Urban Tech",
+  "version": "1.0.0",
   "author": "Urban Tech Hub",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

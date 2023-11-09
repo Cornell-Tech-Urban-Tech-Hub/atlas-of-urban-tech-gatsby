@@ -71,7 +71,9 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/cases/" } }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/atlas/cases/" } }
+    ) {
       nodes {
         excerpt
         fields {

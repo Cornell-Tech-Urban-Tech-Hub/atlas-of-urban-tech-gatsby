@@ -46,10 +46,8 @@ const Stubs = ({ data, location }) => {
     d3.ascending(a.frontmatter.title, b.frontmatter.title)
   )
   const mdNode = data.page.edges[0].node
-
-  const processed = processEntries(data.allMarkdownRemark.nodes)
-
-  const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
+  //const processed = processEntries(data.allMarkdownRemark.nodes)
+  //const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
   return (

@@ -10,12 +10,12 @@ require("dotenv").config() // get env file
  */
 module.exports = {
   siteMetadata: {
-    title: `Atlas of Urban Tech (Draft)`,
+    title: `Atlas of Urban Tech`,
     author: {
       name: `Urban Tech Hub`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A global atlas of case studies of tech-enabled urban districts and municipal digital masterplans.`,
+    siteUrl: `https://atlasofurbantech.org`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

@@ -2,12 +2,8 @@
 
 ## How to Update Submodule Content and Trigger Netlify Rebuild
 
-In Git Desktop:
-1. login
-2. clone the Atlas gatsby [repo](git@github.com:Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech-gatsby.git) to a local folder.
-3. In terminal in VSCODE
-    `git submodule update --remote`
-4. accept the submodile update in Git Desktop
-5. Push in Git Desktop
-
-
+1. VScode (content repo) — commit and push changes
+2. Git Desktop (gatsby repo) — fetch origin
+3. CLI (gatsby repo) — run “git submodule update --remote”
+4. Git Desktop (gatsby repo) — commit
+5. Git Desktop (gatsby repo) — push origin

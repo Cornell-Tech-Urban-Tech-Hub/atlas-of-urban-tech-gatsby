@@ -157,10 +157,12 @@ export const CaseListingRow = ({ nodes }) => {
                     <span className="metatext locaton">
                       {post.frontmatter.city}, {post.frontmatter.country_code}
                     </span>
-                    &nbsp;
-                    <span className="metatext timeframe">
-                      {textCaseTimeframe(post)}
-                    </span>
+
+                    {post.timeframe.start && (
+                      <span className="metatext timeframe">
+                        {textCaseTimeframe(post)}
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>
@@ -195,7 +197,7 @@ const StyledTag = styled.div`
     background-color: #f4d036;
   }
   &.status-review {
-    background-color: darkorange;
+    background-color: #fb0066;
   }
   &.status-complete {
     background-color: #00c0f3;

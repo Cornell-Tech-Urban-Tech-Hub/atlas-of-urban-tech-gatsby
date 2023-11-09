@@ -20,7 +20,7 @@ const StatusTagStyled = styled.div`
     background-color: #f4d036;
   }
   .status-review {
-    background-color: #eda229;
+    background-color: #fb0066;
   }
   .status-complete {
     background-color: #00c0f3;

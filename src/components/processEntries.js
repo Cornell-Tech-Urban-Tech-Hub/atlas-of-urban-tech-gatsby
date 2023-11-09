@@ -19,14 +19,11 @@ export default function processEntries(nodes) {
       return d
     })
 
-  console.log(raw)
   let result = {}
-
+  result.posts = raw
   result.tags = summarizeNodeTaxonomy(nodes, "tags")
-
   result.postsCS = raw.filter(d => d.frontmatter.template === "case-study")
   result.postsStub = raw.filter(d => d.frontmatter.template === "stub")
-
   result.pointCollection = makePointCollection(checkCoordinates(raw))
 
   return result
@@ -40,7 +37,7 @@ function checkCoordinates(nodes) {
     let valid = false
     let centroid = node.frontmatter.centroid
     node.coordinates = null
-    //console.log(centroid)
+
     if (centroid) {
       let lat = centroid[0]
       let lon = centroid[1]

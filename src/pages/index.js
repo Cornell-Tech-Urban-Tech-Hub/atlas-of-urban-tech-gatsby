@@ -25,7 +25,7 @@ const SiteIndex = ({ data, location }) => {
   const markdownMap = contentMapMarkdown(data.markdown.nodes)
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
-  const postsStub = posts.filter(d => d.frontmatter.template === "stub")
+  // const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
   const postsFeatured = postsCS.slice(0, 3)
 

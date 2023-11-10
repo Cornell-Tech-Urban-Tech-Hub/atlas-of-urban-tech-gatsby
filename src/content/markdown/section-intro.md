@@ -3,9 +3,7 @@ ref: intro
 section: intro
 ---
 
-The Atlas of Urban Tech collects case studies created by Cornell Tech students analyzing how city governments and city makers are using digital technology to make cities stronger, fairer, and more resilient.
-
-You'll find two types of case studies here:
+The Atlas of Urban Tech collects case studies created by Cornell Tech students analyzing how city governments and city makers are using digital technology to make cities stronger, fairer, and more resilient. You'll find two types of case studies here:
 
 <div class="case-types">
 <div class="type-plan"><p>

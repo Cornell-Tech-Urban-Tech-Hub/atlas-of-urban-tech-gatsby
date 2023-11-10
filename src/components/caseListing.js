@@ -158,7 +158,7 @@ export const CaseListingRow = ({ nodes }) => {
                       {post.frontmatter.city}, {post.frontmatter.country_code}
                     </span>
 
-                    {post.timeframe.start && (
+                    {post.frontmatter.year_start && (
                       <span className="metatext timeframe">
                         {textCaseTimeframe(post)}
                       </span>

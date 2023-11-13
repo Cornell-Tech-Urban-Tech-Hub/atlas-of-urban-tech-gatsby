@@ -41,7 +41,7 @@ const StyledCaseList = styled.ul`
 `
 
 const Stubs = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = d3.sort(data.allMarkdownRemark.nodes, (a, b) =>
     d3.ascending(a.frontmatter.title, b.frontmatter.title)
   )
@@ -51,8 +51,7 @@ const Stubs = ({ data, location }) => {
   const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title={mdNode.frontmatter.title} />
+    <Layout location={location}>
       <PageSimpleHeader title={mdNode.frontmatter.title}></PageSimpleHeader>
       <Section>
         <Content>
@@ -82,6 +81,8 @@ const Stubs = ({ data, location }) => {
 }
 
 export default Stubs
+
+export const Head = () => <Seo title={"Prospects"} />
 
 /**
  * Head export to define metadata for the page

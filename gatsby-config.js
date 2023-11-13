@@ -10,7 +10,7 @@ require("dotenv").config() // get env file
  */
 module.exports = {
   siteMetadata: {
-    title: `Atlas of Urban Tech`,
+    title: `The Atlas of Urban Tech`,
     author: {
       name: `Urban Tech Hub`,
     },
@@ -70,8 +70,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Atlas of Urban Tech`,
-        short_name: `Atlas of Urban Tech`,
+        name: `The Atlas of Urban Tech`,
+        short_name: `The Atlas of Urban Tech`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website

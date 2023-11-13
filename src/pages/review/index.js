@@ -42,10 +42,6 @@ const SiteIndex = ({ data, location }) => {
       <Section>
         <Content>
           <h1>Review Index</h1>
-          <p>
-            This is a utilty to review all current atlas entries. In other page
-            listings only posts with Status value set to "Complete" will appear
-          </p>
         </Content>
       </Section>
       <Section>

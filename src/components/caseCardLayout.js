@@ -16,7 +16,7 @@ import {
   StyledLink,
 } from "../styles/StyledElements"
 import { CaseCard } from "./caseCards"
-import { tint, transparentize } from "polished"
+import { tint } from "polished"
 import { Link } from "gatsby"
 
 const SectionCards = styled.div`

@@ -120,6 +120,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       featured_image: File @fileByRelativePath
       featured_alt: String
       featured_credit: String
+      featured_credit_link: String
       year_start: String
       year_completed: String
       author: String

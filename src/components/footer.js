@@ -183,7 +183,8 @@ const Footer = ({ siteMetadata, version, location }) => {
             <Row>
               <Column className="copyright">
                 {/* <p>Version: {siteMetadata.version}</p> */}
-                &copy; {new Date().getFullYear()} Urban Tech Hub.
+                <p>Version: 1.0</p>
+                &copy; {new Date().getFullYear()} Urban Tech Hub
               </Column>
             </Row>
           </InnerGrid>
@@ -193,13 +194,3 @@ const Footer = ({ siteMetadata, version, location }) => {
   )
 }
 export default Footer
-
-// query MyQuery {
-//   allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/src/content/markdown/footer-description.md/"}}) {
-//     edges {
-//       node {
-//         html
-//       }
-//     }
-//   }
-// }

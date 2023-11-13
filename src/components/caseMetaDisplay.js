@@ -39,7 +39,7 @@ export const CaseStatusTag = ({ node }) => {
           </span>
         </StatusTagStyled>
       ) : (
-        <div class="note-missing">Add Status</div>
+        <div className="note-missing">Add Status</div>
       )}
     </>
   )
@@ -105,7 +105,7 @@ export const CaseTimeframe = ({ node }) => {
       {node.frontmatter.year_start ? (
         <div>{textCaseTimeframe(node)}</div>
       ) : (
-        <div class="note-missing">
+        <div className="note-missing">
           Add Year Started (and completed if applicable)
         </div>
       )}

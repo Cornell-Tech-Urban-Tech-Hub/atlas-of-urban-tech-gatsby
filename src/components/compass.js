@@ -1,6 +1,7 @@
 /* Header Compass  */
 import React from "react"
 import styled from "styled-components"
+import { tint } from "polished"
 
 export const CompassElement = styled.div`
   display: inline-block;
@@ -50,32 +51,32 @@ export const CompassElement = styled.div`
 
   svg {
     width: 100%;
-    .cls-1 {
-      fill: none;
-    }
 
-    .cls-1,
-    .cls-2,
-    .cls-3,
-    .cls-4 {
+    .south,
+    .north,
+    .center {
       stroke-width: 0px;
     }
 
-    .cls-2 {
-      fill: #dadbdc;
+    .south {
+      //fill: #dadbdc;
+      fill: ${props => tint(0.9, props.theme.colors.red)};
     }
 
-    .cls-3 {
-      fill: #c41230;
+    .north {
+      // fill: #c41230;
+      fill: ${props => tint(0.7, props.theme.colors.red)};
     }
 
-    .cls-4 {
+    .center {
       fill: #fff;
     }
   }
 `
 
 export const Compass = ({}) => {
+  let color = props => tint(0.85, props.theme.colors.red)
+
   return (
     <CompassElement>
       <svg
@@ -84,10 +85,10 @@ export const Compass = ({}) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 36 36"
       >
-        <polygon class="cls-2" points="26 18 18 33 10 18 26 18" />
-        <polygon class="cls-3" points="10 18 18 3 26 18 10 18" />
-        <circle class="cls-4" cx="18" cy="18" r="3.57" />
-        <rect class="cls-1" width="36" height="36" />
+        <polygon className="south" points="26 18 18 33 10 18 26 18" />
+        <polygon className="north" points="10 18 18 3 26 18 10 18" />
+        <circle className="center" cx="18" cy="18" r="3.57" />
+        {/* <rect className="cls-1" width="36" height="36" /> */}
       </svg>
     </CompassElement>
   )

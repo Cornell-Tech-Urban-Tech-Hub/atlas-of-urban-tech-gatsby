@@ -94,9 +94,9 @@ export const GlobeInfo = ({ open = false, handleToggle }) => {
       {open && (
         <InfoBox>
           {/* Click and drag the globe to explore and select the{" "}
-          <span class="info-tag district">district</span> and{" "}
-          <span class="info-tag plan">plan</span> case studies or{" "}
-          <span class="info-tag prospect">prospective</span>
+          <span className="info-tag district">district</span> and{" "}
+          <span className="info-tag plan">plan</span> case studies or{" "}
+          <span className="info-tag prospect">prospective</span>
           entries to view learn more */}
           Click and drag the globe to explore and select the
           <span className="nobreak">
@@ -104,11 +104,11 @@ export const GlobeInfo = ({ open = false, handleToggle }) => {
           </span>
           ,{" "}
           <span className="nobreak">
-            <span class="info-marker plan"></span>plan
+            <span className="info-marker plan"></span>plan
           </span>{" "}
           or{" "}
           <span className="nobreak">
-            <span class="info-marker prospect"></span>
+            <span className="info-marker prospect"></span>
             prospective
           </span>{" "}
           case studies to learn more.

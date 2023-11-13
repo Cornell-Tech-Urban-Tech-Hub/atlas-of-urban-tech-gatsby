@@ -110,7 +110,7 @@ const MastheadStyled = styled.div`
 export const Masthead = ({}) => {
   return (
     <MastheadStyled>
-      <div class="masthead-content">
+      <div className="masthead-content">
         <div className="title">
           <h1>
             <span className="the">The&nbsp;</span>
@@ -120,8 +120,8 @@ export const Masthead = ({}) => {
           </h1>
           <p>
             A global atlas of case studies of tech-enabled urban{" "}
-            <span class="district">districts</span> and municipal digital{" "}
-            <span class="plan">masterplans</span>.
+            <span className="district">districts</span> and municipal digital{" "}
+            <span className="plan">masterplans</span>.
           </p>
           <div className={"compass-wrapper"}>
             <Compass />

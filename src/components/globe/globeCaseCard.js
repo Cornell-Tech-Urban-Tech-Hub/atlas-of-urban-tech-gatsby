@@ -103,7 +103,6 @@ const StyledTag = styled.div`
 `
 
 export const GlobeCaseCard = ({ selectedPoint, handleClose }) => {
-  console.log(selectedPoint)
   let frontmatter = selectedPoint?.properties?.frontmatter
 
   const type = frontmatter.type?.toLowerCase()
@@ -170,7 +169,6 @@ export const CardImage = ({ node }) => {
   const image = getImage(
     node.properties.frontmatter.featured_image?.childImageSharp?.gatsbyImageData
   )
-  console.log(image)
   return (
     <div className="card-image">
       {image ? (

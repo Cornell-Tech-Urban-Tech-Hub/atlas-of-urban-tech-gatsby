@@ -21,7 +21,7 @@ const MyData = ({ url }) => {
     // These next 3 lines purely for debuggins:
     const geojsonObject = L.geoJSON(data)
     map.fitBounds(geojsonObject.getBounds())
-    console.log(geojsonObject)
+    // console.log(geojsonObject)
     // end debugging
 
     return <GeoJSON data={data} />

@@ -53,11 +53,11 @@ const Seo = ({ description, title, children }) => {
       <meta name="twitter:description" content={metaDescription} />
       {children}
 
-      {/* <script
+      <script
         defer
         data-domain="atlasofurbantech.org"
         src="https://plausible.io/js/script.js"
-      ></script> */}
+      ></script>
     </>
   )
 }

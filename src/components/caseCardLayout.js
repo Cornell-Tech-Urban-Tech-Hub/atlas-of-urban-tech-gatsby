@@ -90,7 +90,7 @@ export const CaseCardsSet = ({ nodes, type }) => {
     <StyledCardsSet>
       <RowWrap>
         {nodes?.map(node => (
-          <ColCard key={node.recordId}>
+          <ColCard key={node.id}>
             <CaseCard node={node} />
           </ColCard>
         ))}

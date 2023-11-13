@@ -74,6 +74,8 @@ const SiteIndex = ({ data, location }) => {
 
 export default SiteIndex
 
+export const Head = () => <Seo />
+
 export const pageQuery = graphql`
   {
     site {

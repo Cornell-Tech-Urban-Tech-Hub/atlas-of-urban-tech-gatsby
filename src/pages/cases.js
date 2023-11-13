@@ -46,7 +46,6 @@ const SiteIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title={"Case Studies"} />
       <PageSimpleHeader title={mdNode.frontmatter.title}></PageSimpleHeader>
       <Section>
         <Content>
@@ -76,6 +75,8 @@ const SiteIndex = ({ data, location }) => {
 }
 
 export default SiteIndex
+
+export const Head = () => <Seo title={"Case Studies"} />
 
 export const pageQuery = graphql`
   {

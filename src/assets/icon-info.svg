@@ -1,0 +1,27 @@
+<svg id="icon-info" data-name="icon-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #FFF;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #FFF;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="24" cy="24" r="18"/>
+  <path class="cls-3" d="m21.5,13.56h5v4.38h-5v-4.38Zm.16,5.94h4.69v15.63h-4.69v-15.63Z"/>
+  <rect class="cls-2" width="48" height="48"/>
+</svg>

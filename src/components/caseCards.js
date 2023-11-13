@@ -68,7 +68,7 @@ export const CardBase = styled.div`
 
   .card-summary {
     font-family: ${({ theme }) => theme.type.serif_alt};
-    font-weight: bold;
+    font-weight: 600;
   }
 
   /* .card-content .static {

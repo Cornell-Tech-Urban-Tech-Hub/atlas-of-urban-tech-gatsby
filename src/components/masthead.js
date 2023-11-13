@@ -67,7 +67,7 @@ const MastheadStyled = styled.div`
     p {
       z-index: 100;
       font-size: 1.2rem;
-
+      font-family: ${({ theme }) => theme.type.serif_alt};
       .district {
         border-bottom: 3px solid ${theme.category.district};
       }

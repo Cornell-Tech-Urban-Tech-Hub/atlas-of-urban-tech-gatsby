@@ -3,7 +3,7 @@ import * as ReactDOMServer from "react-dom/server"
 import styled from "styled-components"
 import { above, below } from "../styles/utilities/breakpoints"
 
-import GlobeLayoutA2 from "../components/globe/globeLayoutA2"
+import GlobeLayout from "../components/globe/globeLayout"
 import { TopoPattern } from "../components/pattern/topoPattern"
 import { Compass } from "../components/compass"
 
@@ -27,6 +27,9 @@ const MastheadStyled = styled.div`
 
     display: grid;
     grid-template-columns: 1fr 2fr;
+    ${below.md} {
+      grid-template-columns: 1fr;
+    }
   }
 
   .graphic {
@@ -125,7 +128,7 @@ export const Masthead = ({}) => {
           </div>
         </div>
         <div className="graphic">
-          <GlobeLayoutA2 />
+          <GlobeLayout />
         </div>
       </div>
     </MastheadStyled>

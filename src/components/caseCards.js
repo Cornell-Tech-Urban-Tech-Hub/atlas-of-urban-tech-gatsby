@@ -22,9 +22,9 @@ export const CardBase = styled.div`
 
   a:hover h3 span {
     transition: all 0.5s ease;
-    background-color: ${({ theme }) => theme.colors.primary};
-    box-shadow: 10px 0 0 ${({ theme }) => theme.colors.primary},
-      -10px 0 0 ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.red};
+    box-shadow: 10px 0 0 ${({ theme }) => theme.colors.red},
+      -10px 0 0 ${({ theme }) => theme.colors.red};
     color: white;
   }
 

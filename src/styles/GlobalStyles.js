@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "polished"
-// import { above, below } from "./utilities/breakpoints"
+import { above, below } from "./utilities/breakpoints"
 
 const GlobalStyles = createGlobalStyle`
 
@@ -72,13 +72,14 @@ a.button-more {
 }
 
 
-
-
-
 .case-types {
   display: grid;
   grid-gap: 40px;
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr;
+  ${below["md"]} {
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+  }
 }
 
 

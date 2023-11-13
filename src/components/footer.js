@@ -183,8 +183,7 @@ const Footer = ({ siteMetadata, version, location }) => {
             <Row>
               <Column className="copyright">
                 {/* <p>Version: {siteMetadata.version}</p> */}
-                &copy; {new Date().getFullYear()} Urban Tech Hub. (Draft Content
-                for Review Only)
+                &copy; {new Date().getFullYear()} Urban Tech Hub.
               </Column>
             </Row>
           </InnerGrid>

@@ -66,7 +66,6 @@ const TypeTagStyled = styled.div`
 `
 
 export const CaseTypeTag = ({ node }) => {
-  console.log(node)
   const classtext = node.frontmatter.type?.toLowerCase()
   const label = datadict[node.frontmatter.type]?.label
 

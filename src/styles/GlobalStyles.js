@@ -61,12 +61,12 @@ a.button-more {
   text-decoration: none;
   border-radius: 1rem;
   display: inline-block;
-  color: ${props => props.theme.colors.primary};
-  border: 1px solid ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.red};
+  border: 1px solid ${props => props.theme.colors.red};
   transition: all .25s ease-in-out;
 
   &:hover {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props => props.theme.colors.red};
     color: #ffffff
   }
 }

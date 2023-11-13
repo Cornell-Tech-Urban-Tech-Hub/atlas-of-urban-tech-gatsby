@@ -119,9 +119,8 @@ export const Masthead = ({}) => {
             <span className="line3">of Urban Tech</span>
           </h1>
           <p>
-            A global atlas of case studies of tech-enabled urban{" "}
-            <span className="district">districts</span> and municipal digital{" "}
-            <span className="plan">masterplans</span>.
+            A global atlas of case studies of tech-enabled urban districts and
+            municipal digital masterplans.
           </p>
           <div className={"compass-wrapper"}>
             <Compass />

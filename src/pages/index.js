@@ -27,7 +27,7 @@ const SiteIndex = ({ data, location }) => {
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   // const postsStub = posts.filter(d => d.frontmatter.template === "stub")
 
-  const postsFeatured = postsCS.slice(0, 3)
+  const postsFeatured = getRandomPosts(postsCS, 3)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -124,3 +124,9 @@ export const pageQuery = graphql`
     }
   }
 `
+
+function getRandomPosts(arr, num) {
+  // const shuffled = [...arr].sort(() => 0.5 - Math.random())
+  // return shuffled.slice(0, num)
+  return [...arr].sort(() => 0.5 - Math.random()).slice(0, num)
+}

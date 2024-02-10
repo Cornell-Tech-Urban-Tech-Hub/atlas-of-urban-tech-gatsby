@@ -33,7 +33,15 @@ In the Git Desktop app, open the code repo in the `atlas-of-urban-tech-gatsby` f
 
 ### Step 4. Update the Submodule
 
-Drop into a terminal and update the submodule manually. This simply updates the submodule pointer in the **code** repo to point at the **content** repo commit you just pushed.
+Drop into a terminal and update the submodule manually. 
+
+If this is the first time doing this on a freshly cloned **code** repo, you'll need to first init the submodule.
+
+```
+cd atlas-of-urban-tech-gatsby
+git submodule init
+```
+
 
 ```
 cd atlas-of-urban-tech-gatsby

@@ -1,12 +1,48 @@
 # Atlas of Urban Tech -- Gatsby Static Site Builder
 
-## How to Update Submodule Content and Trigger Netlify Rebuild
+This site consists of two different repos, a **code** repo (this one) for the Gatsby site-builder and a **content** repo for the markdown files used to generate the site. The **content** repo is linked as a submodule into the main repo. This is the process for updating the content repo and triggering the hosted site to be rebuilt in Netlify.
 
+## Update the Content Repo
 
-1. VScode (content repo) — commit and push changes
-   - Generally a good idea to keep your gatsby and content repos separate (e.g. put the content repo in a scratch folder and update it separately from there)
+### Step 1. Make Your Changes to the Content Repo
 
-3. Git Desktop (gatsby repo) — fetch origin
-4. CLI (gatsby repo) — run “git submodule update --remote”
-5. Git Desktop (gatsby repo) — commit
-6. Git Desktop (gatsby repo) — push origin
+If you need to clone it first (to a separate folder, not inside the submodule folder in the code repo):
+
+```
+git clone git@github.com:Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech.git
+```
+
+Or just make sure everything is up to date:
+
+```
+cd atlas-of-urban-tech
+git pull
+```
+
+Then update or add any new files you need.
+
+### Step 2. Stage, Commit, and Push Your Changes 
+
+In VSCode, use the Version Control pane to stage, commit, and push all your changes
+
+## Update the Code Repo
+
+### Step 3. Make Sure You Have the Lastest Code
+
+In the Git Desktop app, open the code repo in the `atlas-of-urban-tech-gatsby` folder. Click "Fetch Origin"
+
+### Step 4. Update the Submodule
+
+Drop into a terminal and update the submodule manually. This simply updates the submodule pointer in the **code** repo to point at the **content** repo commit you just pushed.
+
+```
+cd atlas-of-urban-tech-gatsby
+git submodule update --remote
+```
+### Step 5. Commit and Push the Updates
+
+Back in Git Desktop, click "Commit" and "Push Origin"
+
+### Step 6. Build and Deploy the Site
+
+Netlify will do this automagically when it gets the post-commit hook from GitHub. Takes ~2 minutes.

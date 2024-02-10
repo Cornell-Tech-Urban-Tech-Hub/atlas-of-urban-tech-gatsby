@@ -54,3 +54,5 @@ Back in Git Desktop, click "Commit" and "Push Origin"
 ### Step 6. Build and Deploy the Site
 
 Netlify will do this automagically when it gets the post-commit hook from GitHub. Takes ~2 minutes.
+
+If the changes don't appear, check the Netlify console for build errors.

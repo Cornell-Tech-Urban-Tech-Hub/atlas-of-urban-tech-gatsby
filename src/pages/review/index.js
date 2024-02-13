@@ -17,7 +17,6 @@ const SiteIndex = ({ data, location }) => {
   )
 
   const processed = processEntries(data.allMarkdownRemark.nodes)
-  console.log(processed)
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   const postsStub = posts.filter(d => d.frontmatter.template === "stub")
@@ -67,7 +66,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/atlas/cases/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/atlas/cases/" }
+        frontmatter: { status: { eq: "Complete" } }
+      }
     ) {
       nodes {
         excerpt

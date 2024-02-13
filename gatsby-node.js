@@ -19,7 +19,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/cases/" } }) {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/cases/" }
+          frontmatter: { status: { eq: "Complete" } }
+        }
+      ) {
         nodes {
           id
           fields {

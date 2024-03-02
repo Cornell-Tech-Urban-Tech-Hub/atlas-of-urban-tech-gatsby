@@ -25,6 +25,10 @@ Upon completion of the course, students are able to:
 
 ## Credits
 
+Copyediting
+
+- Rowan Wu
+
 Design and Coding
 
 - Ben Oldenburg

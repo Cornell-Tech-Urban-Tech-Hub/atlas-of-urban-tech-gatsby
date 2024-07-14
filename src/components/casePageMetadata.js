@@ -43,7 +43,7 @@ const TypeTag = styled.div`
     background-color: #777;
   }
   .type-district {
-    background-color: ${datadict.plan.color};
+    background-color: ${datadict.district.color};
   }
   .type-plan {
     background-color: ${datadict.plan.color};

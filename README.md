@@ -1,5 +1,7 @@
 # Atlas of Urban Tech - Gatsby Static Site Builder
 
+Updated: 2025-05-22
+
 This site consists of two different repos, a **code** repo (this one) for the Gatsby site-builder and a **content** repo for the markdown files used to generate the site. The **content** repo is linked as a submodule into the main repo. This is the process for updating the content repo and triggering the hosted site to be rebuilt in Netlify.
 
 ## Update the Content Repo

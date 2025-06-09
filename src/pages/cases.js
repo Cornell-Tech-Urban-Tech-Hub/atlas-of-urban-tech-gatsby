@@ -9,6 +9,7 @@ import { Section, Content, Row, Col } from "../styles/StyledElements"
 import processEntries from "../components/processEntries"
 import { CaseCardsSet } from "../components/caseCardLayout"
 import { PageSimpleHeader } from "../components/pageSimpleHeader"
+import { useLocation } from "@reach/router"
 
 const StyledCaseList = styled.ul`
   list-style: none;
@@ -33,6 +34,23 @@ const StyledCaseList = styled.ul`
   }
 `
 
+const SearchContainer = styled.div`
+  margin: 2rem 0;
+`
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  
+  &:focus {
+    outline: none;
+    border-color: ${props => props.theme.colors.red};
+  }
+`
+
 const SiteIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = d3.sort(data.allMarkdownRemark.nodes, (a, b) =>
@@ -43,6 +61,24 @@ const SiteIndex = ({ data, location }) => {
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   //const postsStub = posts.filter(d => d.frontmatter.template === "stub")
+
+  // Get search query from URL
+  const searchParams = new URLSearchParams(location.search)
+  const searchQuery = searchParams.get("q") || ""
+
+  // Filter cases based on search query
+  const filteredCases = searchQuery
+    ? postsCS.filter(node => {
+        const searchContent = `
+          ${node.frontmatter.title}
+          ${node.frontmatter.description}
+          ${node.frontmatter.tags?.join(" ") || ""}
+          ${node.frontmatter.city}
+          ${node.frontmatter.country_code}
+        `.toLowerCase()
+        return searchContent.includes(searchQuery.toLowerCase())
+      })
+    : postsCS
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -62,7 +98,35 @@ const SiteIndex = ({ data, location }) => {
       </Section>
       <Section>
         <Content>
-          <CaseCardsSet nodes={postsCS} />
+          <SearchContainer>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                const formData = new FormData(e.target)
+                const query = formData.get("search")
+                if (query) {
+                  window.location.href = `/cases?q=${encodeURIComponent(query)}`
+                }
+              }}
+            >
+              <SearchInput
+                type="text"
+                name="search"
+                placeholder="Search cases by title, description, tags, or location..."
+                defaultValue={searchQuery}
+              />
+            </form>
+          </SearchContainer>
+          {searchQuery && (
+            <Row>
+              <Col>
+                <p>
+                  Found {filteredCases.length} case{filteredCases.length !== 1 ? "s" : ""} for "{searchQuery}"
+                </p>
+              </Col>
+            </Row>
+          )}
+          <CaseCardsSet nodes={filteredCases} />
           {/* <Row>
             <Col>
               <CaseListingRow nodes={postsCS} />{" "}

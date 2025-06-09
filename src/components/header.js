@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
-import React, { useState } from "react"
-import { Link, navigate } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import { useLocation } from "@reach/router"
 // import styled from "styled-components"
@@ -24,9 +24,6 @@ const HeaderContainer = styled.header`
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   a:link,
@@ -81,15 +78,6 @@ const SearchButton = styled.button`
 
 const Header = ({ siteMetadata, title }) => {
   const location = useLocation()
-  const [searchQuery, setSearchQuery] = useState("")
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
-    }
-  }
-
   return (
     <>
       <HeaderContainer
@@ -101,15 +89,6 @@ const Header = ({ siteMetadata, title }) => {
           <Link className="header-link-home" to="/">
             {siteMetadata.title}
           </Link>
-          <SearchForm onSubmit={handleSearch}>
-            <SearchInput
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <SearchButton type="submit">Search</SearchButton>
-          </SearchForm>
         </div>
       </HeaderContainer>
       {/* <Navigation siteMetadata={siteMetadata} /> */}

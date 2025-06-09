@@ -85,6 +85,7 @@ const SiteIndex = ({ data, location }) => {
     d3.ascending(a.frontmatter.title, b.frontmatter.title)
   )
   const markdownMap = contentMapMarkdown(data.markdown.nodes)
+  const searchContainerRef = React.useRef(null)
 
   const postsCS = posts.filter(d => d.frontmatter.template === "case-study")
   // const postsStub = posts.filter(d => d.frontmatter.template === "stub")
@@ -94,6 +95,13 @@ const SiteIndex = ({ data, location }) => {
   // Get search query from URL
   const searchParams = new URLSearchParams(location.search)
   const searchQuery = searchParams.get("q") || ""
+
+  // Scroll to search results when search query changes
+  React.useEffect(() => {
+    if (searchQuery && searchContainerRef.current) {
+      searchContainerRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [searchQuery])
 
   // Function to convert markdown to plaintext
   const markdownToPlaintext = (markdown) => {
@@ -170,7 +178,7 @@ const SiteIndex = ({ data, location }) => {
       </SectionMeta>
       <Section>
         <Content>
-          <SearchContainer>
+          <SearchContainer ref={searchContainerRef}>
             <form
               onSubmit={(e) => {
                 e.preventDefault()
